@@ -25,7 +25,3 @@
     "value.converter.schema.registry.url": "http://schema-registry:8081"
   }
 }
-
-/**
- * document.id.strategy.partial.value.projection.list: upsert 기준 컬럼
- */

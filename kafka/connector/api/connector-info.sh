@@ -12,7 +12,7 @@ if [ "$#" -ne 1 ]; then
     cdc_url="127.0.0.1:8083"
 fi
 
-curl -f -X GET ${cdc_url}/connectors?expand=status&expand=info # | jq
+curl -f -X GET ${cdc_url}/connectors?expand=status&expand=info | jq
 
 # jq 없으면 설치해야함
 # MaxOS > brew install jq

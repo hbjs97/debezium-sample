@@ -9,4 +9,4 @@ fi
 args=("$@")
 connector_name=${args[0]}
 
-curl -X GET http://localhost:8083/connectors/{connector_name}/topics # | jq
+curl -X GET http://localhost:8083/connectors/{connector_name}/topics | jq
