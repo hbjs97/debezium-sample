@@ -1,0 +1,66 @@
+version: '2'
+services:
+  zookeeper:
+    image: quay.io/debezium/zookeeper
+    ports:
+      - 2181:2181
+      - 2888:2888
+      - 3888:3888
+
+  kafka:
+    image: quay.io/debezium/kafka
+    ports:
+      - 9092:9092
+    links:
+      - zookeeper
+    environment:
+      - ZOOKEEPER_CONNECT=zookeeper:2181
+
+  # mysql:
+  #   image: quay.io/debezium/example-mysql
+  #   ports:
+  #     - 3307:3307
+  #   environment:
+  #     - MYSQL_ROOT_PASSWORD=debezium
+  #     - MYSQL_USER=mysqluser 
+  #     - MYSQL_PASSWORD=mysqlpw 
+  mysql:
+    image: mysql:8.0.31
+    ports:
+      - "13310:3306"
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+    environment: 
+      MYSQL_ROOT_PASSWORD: test
+      MYSQL_DATABASE: test
+      MYSQL_USER: test
+      MYSQL_PASSWORD: test
+      MYSQL_PORT: 13310
+
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongodb-data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: test
+      MONGO_INITDB_ROOT_PASSWORD: test
+      MONGO_INITDB_DATABASE: test
+
+  connect:
+    image: debezium/connect:1.8
+    ports:
+      - 8083:8083
+    volumes:
+      - ./connectors:/kafka/connectors
+    links:
+      - kafka
+      - mysql
+      - mongodb
+    environment:
+      - BOOTSTRAP_SERVERS=kafka:9092
+      - GROUP_ID=1
+      - CONFIG_STORAGE_TOPIC=my_connect_configs
+      - OFFSET_STORAGE_TOPIC=my_connect_offsets
+      - STATUS_STORAGE_TOPIC=my_source_connect_statuses

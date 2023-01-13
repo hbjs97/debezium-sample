@@ -1,0 +1,58 @@
+version: '2'
+services:
+  zookeeper:
+    image: wurstmeister/zookeeper
+    ports:
+      - "2181:2181"
+
+  # kafka:
+  #   container_name: kafka
+  #   image: wurstmeister/kafka
+  #   depends_on:
+  #     - zookeeper
+  #   ports:
+  #     - "9092:9092"
+  #   volumes:
+  #     - ./kafka-data:/opt/kafka
+  #     - /var/run/docker.sock:/var/run/docker.sock
+  #   environment:
+  #     KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1
+  #     KAFKA_ADVERTISED_PORT: 9092
+  #     KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+
+  kafka:
+    build: .
+    ports:
+      - "9092:9092"
+    volumes:
+      - ./connectors:/opt/kafka/connectors
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+
+  mysql:
+    image: mysql:8.0.31
+    ports:
+      - "13310:3306"
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+    environment: 
+      MYSQL_ROOT_PASSWORD: test
+      MYSQL_DATABASE: test
+      MYSQL_USER: test
+      MYSQL_PASSWORD: test
+      MYSQL_PORT: 13310
+
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongodb-data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: test
+      MONGO_INITDB_ROOT_PASSWORD: test
+      MONGO_INITDB_DATABASE: test
+
+
