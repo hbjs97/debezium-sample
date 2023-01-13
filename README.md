@@ -160,3 +160,4 @@ INSERT INTO test.product (id, name, price, created_at) VALUES (1, '1', 100, DEFA
 ```
 UPDATE test.product t SET t.price = 200 WHERE t.id = 1
 ```
+![Screen Shot 2023-01-13 at 10 54 41 PM](https://user-images.githubusercontent.com/57822562/212336178-1602ac68-34ac-4071-b03e-ae1d7af5f225.png)
