@@ -84,9 +84,10 @@ services:
         echo "Launching Kafka Connect worker"
         /etc/confluent/docker/run &
         #
+        /etc/kafka-connect/api/create-connectors.sh
         sleep infinity
     volumes:
-      - ./connect-data:/etc/kafka-connect/jars/
+      - ./connector:/etc/kafka-connect
 
   mysql:
     image: mysql:8.0
@@ -97,6 +98,7 @@ services:
       MYSQL_DATABASE: test
     volumes:
       - "./mysql-initdb.d:/docker-entrypoint-initdb.d"
+      - "./mysql-data:/var/lib/mysql"
 
   mongodb:
     image: mongo

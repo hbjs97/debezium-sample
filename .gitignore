@@ -1,3 +1,5 @@
 **/kafka-data/
 **/mysql-data/
 **/mongodb-data/
+kafka*/connector/secrets
+kafka*/connector/*.properties

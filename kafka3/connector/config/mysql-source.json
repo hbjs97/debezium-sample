@@ -14,10 +14,13 @@
     "database.whitelist": "test",
     "database.allowPublicKeyRetrieval": "true",
     "table.whitelist": "test.user,test.product,test.order",
-    "transforms": "route",
+
+    "transforms": "route,unwrap",
     "transforms.route.type": "org.apache.kafka.connect.transforms.RegexRouter",
     "transforms.route.regex": "([^.]+)\\.([^.]+)\\.([^.]+)",
     "transforms.route.replacement": "$3",
+    "transforms.unwrap.type": "io.debezium.transforms.ExtractNewRecordState",
+
     "key.converter": "io.confluent.connect.avro.AvroConverter",
     "key.converter.schema.registry.url": "http://schema-registry:8081",
     "value.converter": "io.confluent.connect.avro.AvroConverter",
@@ -25,20 +28,10 @@
   }
 }
 
-/** https://debezium.io/documentation/reference/stable/transformations/event-flattening.html */
-
 /**
- * "transforms": "route",
- * "transforms.route.type": "org.apache.kafka.connect.transforms.RegexRouter",
- * "transforms.route.regex": "([^.]+)\\.([^.]+)\\.([^.]+)",
- * "transforms.route.replacement": "$3"
- */
-
-/**
- * transforms.unwrap.type: "io.debezium.transforms.UnwrapFromEnvelope"
- * transforms.unwrap.type: "io.debezium.transforms.ExtractNewRecordState"
-
- * transforms.unwrap.drop.tombstones: Keeps tombstone records for DELETE operations in the event stream.
- * transforms.unwrap.delete.handling.mo: For DELETE operations, edits the Kafka record by flattening the value field that was in the change event. The value field directly contains the key/value pairs that were in the before field. The SMT adds __deleted and sets it to true
+ * https://debezium.io/documentation/reference/stable/transformations/event-flattening.html
+ * transforms.unwrap.type: before, after 값을 제외하고, after 값의 payload만 받을때
+ * transforms.unwrap.drop.tombstones: DELETE 이벤트 스트림의 작업에 대한 삭제 표시 레코드를 유지
+ * transforms.unwrap.delete.handling.mode: For DELETE operations, edits the Kafka record by flattening the value field that was in the change event. The value field directly contains the key/value pairs that were in the before field. The SMT adds __deleted and sets it to true
  * transforms.unwrap.add.fields: Adds change event metadata for the table and lsn fields to the simplified Kafka record.
  */
