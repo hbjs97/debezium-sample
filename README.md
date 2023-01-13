@@ -154,3 +154,9 @@ INSERT INTO test.product (id, name, price, created_at) VALUES (1, '1', 100, DEFA
 ```
 
 ![image](https://user-images.githubusercontent.com/57822562/212335608-f01fa077-adbe-4058-906f-89e9e926a81e.png)
+
+
+데이터 수정시 정상적으로 sink 저장소에 업데이트된다.
+```
+UPDATE test.product t SET t.price = 200 WHERE t.id = 1
+```
