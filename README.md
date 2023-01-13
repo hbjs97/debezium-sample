@@ -107,9 +107,11 @@ http://localhost:8083/connectors/mysql-source/topics
 http://localhost:8083/connectors/mongodb-sink/topics
 ```
 
-IMAGE-http://localhost:8083/connectors?expand=status&expand=info
+![Screen Shot 2023-01-13 at 10 52 24 PM](https://user-images.githubusercontent.com/57822562/212335696-eea9be4e-7427-46ad-89d2-6e6d3f2465d5.png)
 
 커넥트에 생성된 커넥터들의 정보가 조회된다. 커넥터를 등록하기 전에 조회시 빈 객체가 반환된다.
+
+
 
 
 ```
@@ -151,4 +153,4 @@ INSERT INTO test.product (id, name, price, created_at) VALUES (1, '1', 100, DEFA
 }
 ```
 
-IMAGE-MONGODB CAPTURE
+![image](https://user-images.githubusercontent.com/57822562/212335608-f01fa077-adbe-4058-906f-89e9e926a81e.png)
