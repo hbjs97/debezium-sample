@@ -172,3 +172,10 @@ cd application
 yarn
 yarn start
 ```
+
+![Screen Shot 2023-01-16 at 3 12 55 PM](https://user-images.githubusercontent.com/57822562/212610145-1d7250f2-fff3-4e38-88dd-125fc295d05b.png)
+
+
+http://localhost:5020/api-docs
+
+![Screen Shot 2023-01-16 at 3 15 25 PM](https://user-images.githubusercontent.com/57822562/212610463-7b8d2dd4-734a-455d-85e5-08a9b308adaa.png)
