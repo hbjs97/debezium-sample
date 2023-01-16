@@ -6,9 +6,9 @@ import { setupSwagger } from './setup-swagger';
 
 export function setNestApp(app: INestApplication): INestApplication {
   const isProduction = process.env.NODE_ENV === 'production';
-  if (!isProduction) {
-    setupSwagger(app);
-  }
+  // if (!isProduction) {
+  setupSwagger(app);
+  // }
 
   app.use(compression());
   app.use(helmet({ contentSecurityPolicy: isProduction ? undefined : false }));
