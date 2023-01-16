@@ -179,3 +179,14 @@ yarn start
 http://localhost:5020/api-docs
 
 ![Screen Shot 2023-01-16 at 3 15 25 PM](https://user-images.githubusercontent.com/57822562/212610463-7b8d2dd4-734a-455d-85e5-08a9b308adaa.png)
+
+
+
+![Screen Shot 2023-01-16 at 3 18 55 PM](https://user-images.githubusercontent.com/57822562/212610996-4da62516-81fa-4d4f-8851-a004df19ea27.png)
+![Screen Shot 2023-01-16 at 3 19 04 PM](https://user-images.githubusercontent.com/57822562/212611015-04dfbd65-a9ad-4913-88fb-39030d3a1a6e.png)
+![Screen Shot 2023-01-16 at 3 19 09 PM](https://user-images.githubusercontent.com/57822562/212611023-8a021529-c04a-4466-a453-44e1360b05ab.png)
+
+
+![Screen Shot 2023-01-16 at 3 19 45 PM](https://user-images.githubusercontent.com/57822562/212611081-30e5652c-1152-401a-b806-bb1961a2d1b0.png)
+![Screen Shot 2023-01-16 at 3 19 50 PM](https://user-images.githubusercontent.com/57822562/212611094-967952ee-d120-44a2-afdf-40c1f397de2b.png)
+![Screen Shot 2023-01-16 at 3 19 55 PM](https://user-images.githubusercontent.com/57822562/212611106-fa7937e4-66f7-4d37-a381-1e367a6edd79.png)
