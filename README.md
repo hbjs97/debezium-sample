@@ -93,7 +93,7 @@
 cd kafka
 ./start.sh
 
-# 커텍터 생성
+# 커넥터 생성
 cd ./connector/api
 ./create-connectors.sh
 ```
