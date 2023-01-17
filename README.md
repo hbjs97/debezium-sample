@@ -205,8 +205,8 @@ zookeeper나 kafka는 각 인스턴스에 고유한 id를 부여해야하는데,
 브로커의 개수가 복제본의 개수만큼 생길것이라 예상했는데, kafka ui로 브로커의 목록을 조회해보면 하나의 브로커만 존재한다.
 모든 브로커가 동일한 broker.id 값을 가지고, Zookeeper에서 서로 충돌 하기 때문에 scale이 정상적으로 될 수 없다.
 
-https://github.com/conduktor/kafka-stack-docker-compose/blob/master/zk-single-kafka-multiple.yml
-https://github.com/conduktor/kafka-stack-docker-compose/blob/master/zk-multiple-kafka-multiple.yml
+- https://github.com/conduktor/kafka-stack-docker-compose/blob/master/zk-single-kafka-multiple.yml
+- https://github.com/conduktor/kafka-stack-docker-compose/blob/master/zk-multiple-kafka-multiple.yml
 위 예시와 같이 명시적으로 서비스를 여러개 선언하는 방법이 있다.
 > 하지만, 위 방식으로 구성할 경우 운영중에 스케일 아웃이 불가능하지 않을까 하는 의문이 생긴다.
 > 적절한 kafka 컨테이너 복제본을 정의할 수 있는 방법으로 Minikube, Strimzi Kafka, Nifi Helm Chart 등의
