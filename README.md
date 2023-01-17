@@ -190,3 +190,24 @@ http://localhost:5020/api-docs
 ![Screen Shot 2023-01-16 at 3 19 45 PM](https://user-images.githubusercontent.com/57822562/212611081-30e5652c-1152-401a-b806-bb1961a2d1b0.png)
 ![Screen Shot 2023-01-16 at 3 19 50 PM](https://user-images.githubusercontent.com/57822562/212611094-967952ee-d120-44a2-afdf-40c1f397de2b.png)
 ![Screen Shot 2023-01-16 at 3 19 55 PM](https://user-images.githubusercontent.com/57822562/212611106-fa7937e4-66f7-4d37-a381-1e367a6edd79.png)
+
+---
+
+## 문제
+zookeeper, kafka, connect는 다수의 인스턴스로 클러스터링 할 필요가 있는 서비스다.
+단순히 docker-compose.yml 파일에
+```
+deploy:
+  replicas: 3
+```
+옵션을 주고 배포를 시도했으나 정상적으로 동작하지 않았다. cli로 scale out해도 마찬가지였다.
+zookeeper나 kafka는 각 인스턴스에 고유한 id를 부여해야하는데, 위 경우에는 같은 아이디로 인스턴스가 생성된다.
+브로커의 개수가 복제본의 개수만큼 생길것이라 예상했는데, kafka ui로 브로커의 목록을 조회해보면 하나의 브로커만 존재한다.
+모든 브로커가 동일한 broker.id 값을 가지고, Zookeeper에서 서로 충돌 하기 때문에 scale이 정상적으로 될 수 없다.
+
+https://github.com/conduktor/kafka-stack-docker-compose/blob/master/zk-single-kafka-multiple.yml
+https://github.com/conduktor/kafka-stack-docker-compose/blob/master/zk-multiple-kafka-multiple.yml
+위 예시와 같이 명시적으로 서비스를 여러개 선언하는 방법이 있다.
+> 하지만, 위 방식으로 구성할 경우 운영중에 스케일 아웃이 불가능하지 않을까 하는 의문이 생긴다.
+> 적절한 kafka 컨테이너 복제본을 정의할 수 있는 방법으로 Minikube, Strimzi Kafka, Nifi Helm Chart 등의
+> 쿠버네티스와 함께 사용하는 방법이 있다고 하는데, docker swarm 을 사용해서 해결하는 방법을 찾지못했다.
