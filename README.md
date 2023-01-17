@@ -7,7 +7,7 @@
 ![Screen Shot 2023-01-11 at 6 17 42 PM](https://user-images.githubusercontent.com/57822562/211766504-96be7e05-d4da-4a2f-b337-4bd78ff83c5b.png)
 
 ## 아키텍처
-![debezium-sample-system drawio](https://user-images.githubusercontent.com/57822562/212319059-00c937de-f840-44f3-a58b-2fc14c95eea6.png)
+![debezium-sample-system drawio](https://user-images.githubusercontent.com/57822562/212839081-a26afa9f-bca3-417e-9c46-090310b57ee1.png)
 
 ---
 
