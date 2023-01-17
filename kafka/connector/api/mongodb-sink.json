@@ -3,7 +3,8 @@
   "config": {
     "connector.class": "com.mongodb.kafka.connect.MongoSinkConnector",
     "tasks.max": "1",
-    "topics": "user,product,order",
+    "topics": "order",
+    // "topics": "user,product,order",
     "connection.uri": "mongodb://root:root@mongodb:27017/",
     "database": "test",
 

@@ -13,7 +13,8 @@
     "database.history.kafka.topic": "schema-changes.test",
     "database.whitelist": "test",
     "database.allowPublicKeyRetrieval": "true",
-    "table.whitelist": "test.user,test.product,test.order",
+    "table.whitelist": "test.order",
+    // "table.whitelist": "test.user,test.product,test.order",
 
     "transforms": "route,unwrap",
     "transforms.route.type": "org.apache.kafka.connect.transforms.RegexRouter",
