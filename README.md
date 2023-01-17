@@ -211,3 +211,6 @@ https://github.com/conduktor/kafka-stack-docker-compose/blob/master/zk-multiple-
 > 하지만, 위 방식으로 구성할 경우 운영중에 스케일 아웃이 불가능하지 않을까 하는 의문이 생긴다.
 > 적절한 kafka 컨테이너 복제본을 정의할 수 있는 방법으로 Minikube, Strimzi Kafka, Nifi Helm Chart 등의
 > 쿠버네티스와 함께 사용하는 방법이 있다고 하는데, docker swarm 을 사용해서 해결하는 방법을 찾지못했다.
+
+![Screen Shot 2023-01-17 at 4 39 16 PM](https://user-images.githubusercontent.com/57822562/212837609-f4778056-3dc4-4461-8ee5-d30a23459a95.png)
+![Screen Shot 2023-01-17 at 4 39 41 PM](https://user-images.githubusercontent.com/57822562/212837685-4901dda0-3255-482f-922b-7ac15eaa1a43.png)
