@@ -9,12 +9,11 @@
     "database.password": "root",
     "database.server.id": "184054",
     "database.server.name": "source_mysql_server1",
-    "database.history.kafka.bootstrap.servers": "kafka:19092",
+    "database.history.kafka.bootstrap.servers": "kafka1:19092,kafka2:19093,kafka3:19094",
     "database.history.kafka.topic": "schema-changes.test",
     "database.whitelist": "test",
     "database.allowPublicKeyRetrieval": "true",
     "table.whitelist": "test.order",
-    // "table.whitelist": "test.user,test.product,test.order",
 
     "transforms": "route,unwrap",
     "transforms.route.type": "org.apache.kafka.connect.transforms.RegexRouter",
@@ -28,6 +27,8 @@
     "value.converter.schema.registry.url": "http://schema-registry:8081"
   }
 }
+
+// "table.whitelist": "test.user,test.product,test.order",
 
 /**
  * https://debezium.io/documentation/reference/stable/transformations/event-flattening.html

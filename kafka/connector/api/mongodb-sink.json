@@ -4,7 +4,6 @@
     "connector.class": "com.mongodb.kafka.connect.MongoSinkConnector",
     "tasks.max": "1",
     "topics": "order",
-    // "topics": "user,product,order",
     "connection.uri": "mongodb://root:root@mongodb:27017/",
     "database": "test",
 
@@ -26,3 +25,5 @@
     "value.converter.schema.registry.url": "http://schema-registry:8081"
   }
 }
+
+// "topics": "user,product,order",
